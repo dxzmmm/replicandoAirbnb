@@ -1,14 +1,18 @@
 import React from "react";
 import airbnbLogo from "../assets/img/airbnb2.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="shadow-xl">
-      <div className="mx-auto flex items-center justify-between px-40 py-4">
-        <div className="">
-          <img src={airbnbLogo} alt="AirBnbLogo" className="h-10" />
-        </div>
-        <div className="flex items-center rounded-full border border-gray-300 px-4 py-2 shadow-sm">
+      <div className="max-w-7x1 mx-auto flex items-center justify-between px-8 py-4">
+        <Link to="/">
+          <img src={airbnbLogo} alt="AirBnbLogo" className="h-9 md:h-10" />
+        </Link>
+        <Link
+          to="/"
+          className="hidden items-center rounded-full border border-gray-300 px-4 py-2 shadow-sm md:flex"
+        >
           <p className="border-r border-r-gray-300 pr-2">Qualquer lugar</p>
           <p className="border-r border-r-gray-300 pr-2 pl-2">
             Qualquer semana
@@ -30,9 +34,11 @@ const Header = () => {
               />
             </svg>
           </p>
-        </div>
-        <div className="flex items-end gap-2 rounded-full border border-gray-300 px-4 py-2 shadow-sm">
-          <p>Perfil</p>
+        </Link>
+        <Link
+          to="/login"
+          className="flex items-center gap-2 rounded-full border border-gray-300 px-4 py-2 shadow-sm"
+        >
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +71,7 @@ const Header = () => {
               />
             </svg>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
