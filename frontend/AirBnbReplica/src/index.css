@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme {
+    --color-search: #f33558
+}
