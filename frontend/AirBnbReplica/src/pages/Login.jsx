@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <section className="flex items-center">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-2xl">
-        <p className="text-center text-3xl font-bold">Faça seu login</p>
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 rounded-2xl">
+        <p className="text-center text-3xl font-bold lg:px-13">
+          Faça seu login
+        </p>
         <input
           className="w-full rounded-full border border-gray-300 p-3 text-sm"
           type="text"
@@ -23,10 +25,12 @@ const Login = () => {
         <button className="bg-search cursor-pointer rounded-full border border-gray-300 p-1 text-center text-white">
           Login
         </button>
-        <Link to="/register">
-          Ainda não tem uma conta?{" "}
-          <span className="font-semibold underline">Registre-se aqui!</span>
-        </Link>
+        <div className="flex gap-1">
+          <p> Já possui uma conta?</p>
+          <Link to="/register">
+            <span className="font-semibold underline">Registre-se aqui!</span>
+          </Link>
+        </div>
       </div>
     </section>
   );

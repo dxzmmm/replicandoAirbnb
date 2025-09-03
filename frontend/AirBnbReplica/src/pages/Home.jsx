@@ -3,7 +3,7 @@ import Items from "../components/items";
 
 const Home = () => {
   return (
-    <div className="mx-10 grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(225px,1fr))] gap-x-3 gap-y-15 py-10 lg:mx-30">
+    <div className="mx-auto grid max-w-full grid-cols-[repeat(auto-fit,minmax(225px,1fr))] gap-8 p-8 lg:max-w-7xl">
       <Items />
       <Items />
       <Items />
