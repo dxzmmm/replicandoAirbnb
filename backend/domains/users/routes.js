@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/register", async (req, res) => {
   connectDB();
   const { name, email, password } = req.body;
   const encryptedPassword = bcrypt.hashSync(password, bcryptSalt);
@@ -29,6 +29,28 @@ router.post("/", async (req, res) => {
     });
 
     res.json(newUserDoc);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+router.post("/login", async (req, res) => {
+  connectDB();
+
+  const { email, password } = req.body;
+
+  try {
+    const userDoc = await User.findOne({ email });
+
+    if (userDoc) {
+      const passwordCorrect = bcrypt.compareSync(password, userDoc.password);
+      const { name, _id } = userDoc;
+      passwordCorrect
+        ? res.json({ name, password, _id })
+        : res.status(400).json("Senha inválida!");
+    } else {
+      res.status(400).json("Usuario não encontrado!");
+    }
   } catch (error) {
     res.status(500).json(error);
   }
