@@ -7,36 +7,38 @@ const Register = () => {
         <p className="px-6 text-center text-3xl font-bold lg:px-10">
           Faça seu registro
         </p>
-        <input
-          className="w-full rounded-full border border-gray-300 p-3 text-sm"
-          type="text"
-          name="password"
-          id="password"
-          placeholder="Digite sua senha"
-        />
-        <input
-          className="w-full rounded-full border border-gray-300 p-3 text-sm"
-          type="text"
-          name="email"
-          id="email"
-          placeholder="Digite seu email"
-        />
-        <input
-          className="w-full rounded-full border border-gray-300 p-3 text-sm"
-          type="text"
-          name="password"
-          id="password"
-          placeholder="Digite sua senha"
-        />
-        <button className="bg-search cursor-pointer rounded-full border border-gray-300 p-1 text-center text-white">
-          Login
-        </button>
-        <div className="flex gap-1">
-          <p> Já possui uma conta?</p>
-          <Link to="/login">
-            <span className="font-semibold underline">Logue aqui!</span>
-          </Link>
-        </div>
+        <form className="flex flex-col gap-2">
+          <input
+            className="w-full rounded-full border border-gray-300 p-3 text-sm"
+            type="text"
+            name="text"
+            id="name"
+            placeholder="Digite seu nome"
+          />
+          <input
+            className="w-full rounded-full border border-gray-300 p-3 text-sm"
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Digite seu email"
+          />
+          <input
+            className="w-full rounded-full border border-gray-300 p-3 text-sm"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Digite sua senha"
+          />
+          <button className="bg-search cursor-pointer rounded-full border border-gray-300 p-1 text-center text-white">
+            Login
+          </button>
+          <div className="text-center">
+            <p> Já possui uma conta?</p>
+            <Link to="/login">
+              <span className="font-semibold underline">Logue aqui!</span>
+            </Link>
+          </div>
+        </form>
       </div>
     </section>
   );
