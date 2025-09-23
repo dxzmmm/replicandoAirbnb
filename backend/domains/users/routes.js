@@ -45,9 +45,14 @@ router.post("/login", async (req, res) => {
     if (userDoc) {
       const passwordCorrect = bcrypt.compareSync(password, userDoc.password);
       const { name, _id } = userDoc;
-      passwordCorrect
-        ? res.json({ name, password, _id })
-        : res.status(400).json("Senha inválida!");
+      if (passwordCorrect) {
+        const newUserObj = { name, password, _id };
+        const jwt = jwt.sign(newUserObj, JWT_SECRET_KEY);
+        console.log({ token, JWT_SECRET_KEY });
+        res.cookie.json(newUserObj);
+      } else {
+        res.status(400).json("Senha inválida!");
+      }
     } else {
       res.status(400).json("Usuario não encontrado!");
     }
